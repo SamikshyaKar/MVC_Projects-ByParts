@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MVC_Projects_ByParts.Models.Student>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<div style="font-family:Arial; margin:10px">
+    @using (Html.BeginForm())
+            {
+                <b>Name :</b>
+                @Html.TextBox("SearchTerm", null, new  {id="txtSearch" })
+                 <input type="submit" value="search" />
+
+            }
+    <table border="1" style="margin:8px ; background-color:aqua; border-style:solid groove " >
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalMarks)
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalMarks)
+                </td>
+               
+            </tr>
+        }
+
+    </table>
+</div>
